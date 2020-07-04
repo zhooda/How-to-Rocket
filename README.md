@@ -1,5 +1,9 @@
 <p align="center">
-  <img width="100" height="100" style="border-radius: 13pt" src="./Resources/how-to-rocket-icon-01.png">
+  <img width="150" height="150" src="./How%20To%20Rocket/Assets.xcassets/open-cycle-icon.imageset/open-cycle-icon.svg">
 </p>
 
 <h1 align="center">How to Rocket</h1>
+
+<p align="center">
+    <img src="./Resources/IMG_3935.GIF" width=300>
+</p>
