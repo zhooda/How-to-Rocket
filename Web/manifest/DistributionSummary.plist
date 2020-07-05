@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>How To Rocket.ipa</key>
+	<array>
+		<dict>
+			<key>architectures</key>
+			<array>
+				<string>arm64</string>
+			</array>
+			<key>certificate</key>
+			<dict>
+				<key>SHA1</key>
+				<string>F874D1507E02B0D5192D7E98BB68CDAA1CFF874C</string>
+				<key>dateExpires</key>
+				<string>5/5/21</string>
+				<key>type</key>
+				<string>Apple Development</string>
+			</dict>
+			<key>entitlements</key>
+			<dict>
+				<key>application-identifier</key>
+				<string>8ZAQVXT82R.dev.hooda.how-to-rocket</string>
+				<key>com.apple.developer.team-identifier</key>
+				<string>8ZAQVXT82R</string>
+				<key>get-task-allow</key>
+				<true/>
+				<key>keychain-access-groups</key>
+				<array>
+					<string>8ZAQVXT82R.dev.hooda.how-to-rocket</string>
+				</array>
+			</dict>
+			<key>name</key>
+			<string>How To Rocket.app</string>
+			<key>profile</key>
+			<dict>
+				<key>UUID</key>
+				<string>2aa44372-024c-45eb-9f2a-9b59c4ad05ab</string>
+				<key>name</key>
+				<string>iOS Team Provisioning Profile: *</string>
+			</dict>
+			<key>team</key>
+			<dict>
+				<key>id</key>
+				<string>8ZAQVXT82R</string>
+				<key>name</key>
+				<string>Zeeshan Hooda (Individual)</string>
+			</dict>
+		</dict>
+	</array>
+</dict>
+</plist>
