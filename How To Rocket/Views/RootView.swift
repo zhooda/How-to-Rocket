@@ -33,9 +33,13 @@ struct RootView: View {
         }
         .accentColor(.red)
         .onAppear {
-            Api().getArticles { (articles) in
-                self.articles = articles
-            }
+            fetchArticles()
+        }
+    }
+    
+    func fetchArticles() {
+        Api().getArticles { (articles) in
+            self.articles = articles
         }
     }
     

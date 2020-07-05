@@ -27,3 +27,14 @@ struct Article: Codable, Identifiable {
 //    Article(headline: "SpaceX Simultaniously Lands Boosters of Falcon Heavy", imageName: "article-image-1", body: "YOU MIGHT THINK the coolest part of the SpaceX Falcon Heavy test was the Tesla with a spaceman riding inside, flying out into space. Yeah, sure, that part was cool. But for me, the best part was this footage of the Heavy's two side boosters returning to the launch pad. \n\nThere are a bunch of cool physics things you can do with a video like this. For me, I'm going to answer two questions. First, how far away was this camera from the boosters when they turned on the engines? Second, what kind of acceleration did the boosters have while slowing down?"),
 //]
 //#endif
+
+#if DEBUG
+let testArticleData = [
+    Article(title: "This is a headline", url: "", published_date: "Literally right now", news_site_long: "NASA", featured_image: "https://cdn.arstechnica.net/wp-content/uploads/2020/07/rocket-lab-800x543.jpg"),
+    Article(title: "This is another headline!", url: "", published_date: "", news_site_long: "SpaceX", featured_image: "https://cdn.arstechnica.net/wp-content/uploads/2020/07/rocket-lab-800x543.jpg"),
+    Article(title: "This is an even longer headline", url: "", published_date: "", news_site_long: "Arstechnica", featured_image: "https://cdn.arstechnica.net/wp-content/uploads/2020/07/rocket-lab-800x543.jpg"),
+    Article(title: "Short headline", url: "", published_date: "", news_site_long: "Gazorpazorp Post", featured_image: "https://cdn.arstechnica.net/wp-content/uploads/2020/07/rocket-lab-800x543.jpg"),
+    Article(title: "This is another headline, yet again about rockets", url: "", published_date: "The Squanchy Times", news_site_long: "The Squanchy Times", featured_image: "https://cdn.arstechnica.net/wp-content/uploads/2020/07/rocket-lab-800x543.jpg"),
+    Article(title: "Are you bored yet? Well this is just DEBUG data! Try the real deal", url: "Uh Geez Rick I Don't Know", published_date: "Uh Geez Rick I Don't Know", news_site_long: "Uh Geez Rick I Don't Know", featured_image: "https://cdn.arstechnica.net/wp-content/uploads/2020/07/rocket-lab-800x543.jpg"),
+]
+#endif

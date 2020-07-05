@@ -24,11 +24,20 @@ struct ArticleCardView: View {
 //            URLImage(URL(string: article.featured_image)!, placeholder: Image(systemName: "hammer.fill"))
 //                .resizable()
 //                .aspectRatio(contentMode: .fit)
-            URLImage(URL(string: article.featured_image)!, delay: 0.25) { proxy in
+            URLImage(URL(string: article.featured_image)!, placeholder: {_ in
+                VStack {
+                    Image("placeholder-img")
+                        .renderingMode(.template)
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(maxHeight: 180)
+                        .foregroundColor(Color(.secondarySystemFill))
+                }
+            }) { proxy in
                 proxy.image
                     .resizable()                     // Make image resizable
                     .aspectRatio(contentMode: .fill) // Fill the frame
-                    .clipped()                      // Clip overlaping parts
+//                    .clipped()                      // Clip overlaping parts
                 }
             .frame(maxHeight: 180)
             ZStack(alignment: .leading) {

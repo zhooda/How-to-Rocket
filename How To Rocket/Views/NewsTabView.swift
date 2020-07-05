@@ -20,13 +20,28 @@ struct NewsTabView: View {
                 }
             }
             .navigationBarTitle("🚀 News", displayMode: .large)
+            .navigationBarItems(trailing: Button(action: {
+                fetchArticles()
+            }, label: {
+                Image(systemName: "arrow.clockwise.circle.fill")
+                    .imageScale(.large)
+                    .foregroundColor(.red)
+            }))
         }
+//        .onAppear(perform: fetchArticles)
 
     }
+    
+    func fetchArticles() {
+        Api().getArticles { (articles) in
+            self.articles = articles
+        }
+    }
 }
-//
-//struct NewsTabView_Previews: PreviewProvider {
-//    static var previews: some View {
-////        NewsTabView()
-//    }
-//}
+
+
+struct NewsTabView_Previews: PreviewProvider {
+    static var previews: some View {
+        NewsTabView(articles: .constant(testArticleData))
+    }
+}
