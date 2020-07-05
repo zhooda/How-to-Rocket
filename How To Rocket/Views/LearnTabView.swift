@@ -33,8 +33,11 @@ struct LearnTabView: View {
                     Section(header: Text(sections[1])) {
                         ForEach(equations) {equation in
                             NavigationLink(
-                                destination: WebView(url: "https://google.com/").edgesIgnoringSafeArea(.all),
-//                                destination: Text(equation.name),
+//                                destination: WebView(url: "https://google.com/?q=rocket%20equation").edgesIgnoringSafeArea(.all),
+                                destination: VStack {
+                                    Text(equation.name)
+                                    Text(equation.equation).italic()
+                                },
                                 label: {
                                     EquationCell(equation: equation)
                                 })

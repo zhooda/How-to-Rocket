@@ -17,11 +17,11 @@ struct Equation: Identifiable {
 }
 
 
-#if DEBUG
+//#if DEBUG
 let testEquationData = [
     Equation(name: "Gravitation", equation: "F = GmM/r^2", iconName: "percent", color: .yellow),
     Equation(name: "Work", equation: "W = Fdcosθ", iconName: "function", color: .gray),
     Equation(name: "Velocity", equation: "v = 0.5mv^2", iconName: "number", color: .red),
     Equation(name: "Ideal Rocket Equation", equation: "F = ma", iconName: "sum", color: .orange),
 ]
-#endif
+//#endif

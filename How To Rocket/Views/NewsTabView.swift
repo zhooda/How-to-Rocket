@@ -11,6 +11,7 @@ struct NewsTabView: View {
     
     @Environment(\.colorScheme) var colorScheme
     @Binding var articles: [Article]
+    @State var showingAlert = false
     
     var body: some View {
         NavigationView {
@@ -21,12 +22,17 @@ struct NewsTabView: View {
             }
             .navigationBarTitle("🚀 News", displayMode: .large)
             .navigationBarItems(trailing: Button(action: {
+                self.showingAlert.toggle()
                 fetchArticles()
             }, label: {
                 Image(systemName: "arrow.clockwise.circle.fill")
                     .imageScale(.large)
                     .foregroundColor(.red)
-            }))
+            })
+            .alert(isPresented: $showingAlert, content: {
+                Alert(title: Text("WARNING"), message: Text(Api().warningMessage), dismissButton: .destructive(Text("Got it!")))
+            })
+            )
         }
 //        .onAppear(perform: fetchArticles)
 

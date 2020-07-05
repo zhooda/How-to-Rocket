@@ -26,7 +26,7 @@ struct EngineDetailView: View {
             }
             .padding(.top, 1)
         }
-        .navigationBarTitle("\(engine.name)")
+        .navigationBarTitle("\(engine.name)", displayMode: .large)
         
     }
 }
@@ -94,8 +94,8 @@ struct EngineDetailText: View {
     }
 }
 
-#if DEBUG
+//#if DEBUG
 let lorem = "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Non, saepe ex. Eum dolores provident ipsam unde repellat alias amet minima veritatis numquam. \n\nAsperiores harum placeat expedita officia recusandae perferendis cum facilis beatae aut ea aliquam ad, voluptatem commodi sed ex ipsa natus architecto saepe. Voluptas quis vitae dicta! Fugit excepturi quam fugiat quo quisquam velit accusantium libero. \n\nIncidunt quas iste totam provident consequatur? Assumenda voluptates omnis quo odit nostrum hic quisquam. Molestiae molestias reprehenderit nam sapiente, facilis, incidunt voluptates porro harum deserunt laudantium eum aliquid, accusamus voluptatum dolorum assumenda laboriosam. \n\nIpsum neque, aliquam eum accusantium facere, eligendi labore est nobis ratione alias, doloribus animi officia dignissimos esse quo cupiditate. Magni odit cupiditate neque perspiciatis ipsam mollitia distinctio impedit, illo excepturi!"
 
 let lorem2 = "Incidunt quas iste totam provident consequatur? Assumenda voluptates omnis quo odit nostrum hic quisquam. Molestiae molestias reprehenderit nam sapiente, facilis, incidunt voluptates porro harum deserunt laudantium eum aliquid, accusamus voluptatum dolorum assumenda laboriosam. \n\nIpsum neque, aliquam eum accusantium facere, eligendi labore est nobis ratione alias, doloribus animi officia dignissimos esse quo cupiditate. Magni odit cupiditate neque perspiciatis ipsam mollitia distinctio impedit, illo excepturi!"
-#endif
+//#endif

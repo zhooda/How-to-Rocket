@@ -17,11 +17,11 @@ struct Engine: Identifiable {
 }
 
 
-#if DEBUG
+//#if DEBUG
 let testEngineData = [
     Engine(name: "Open Cycle", type: "Gas Turbine", iconName: "open-cycle-icon", color: .purple),
     Engine(name: "Closed Cycle", type: "Oxidizer Rich", iconName: "open-cycle-icon", color: .blue),
     Engine(name: "Closed Cycle", type: "Fuel Rich", iconName: "open-cycle-icon", color: .green),
     Engine(name: "Full Flow", type: "Staged Combustion Cycle", iconName: "open-cycle-icon", color: .orange)
 ]
-#endif
+//#endif

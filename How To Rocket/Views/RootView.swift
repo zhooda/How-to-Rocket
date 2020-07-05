@@ -11,10 +11,15 @@ struct RootView: View {
     
     @State var selectedTab = 0
     @State var articles: [Article] = []
+    @State private var showingAlert = true
+    
     
     var body: some View {
         TabView(selection: $selectedTab) {
             NewsTabView(articles: $articles)
+                .alert(isPresented: $showingAlert) {
+                    Alert(title: Text("WARNING"), message: Text(Api().warningMessage), dismissButton: .destructive(Text("Got it!")))
+                        }
                 .tabItem {
                     Image(systemName: "newspaper.fill")
                     Text("News")

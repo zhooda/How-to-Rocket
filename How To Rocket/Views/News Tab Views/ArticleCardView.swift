@@ -27,8 +27,8 @@ struct ArticleCardView: View {
             URLImage(URL(string: article.featured_image)!, placeholder: {_ in
                 VStack {
                     Image("placeholder-img")
-                        .renderingMode(.template)
                         .resizable()
+                        .renderingMode(.template)
                         .aspectRatio(contentMode: .fill)
                         .frame(maxHeight: 180)
                         .foregroundColor(Color(.secondarySystemFill))
@@ -37,7 +37,7 @@ struct ArticleCardView: View {
                 proxy.image
                     .resizable()                     // Make image resizable
                     .aspectRatio(contentMode: .fill) // Fill the frame
-//                    .clipped()                      // Clip overlaping parts
+
                 }
             .frame(maxHeight: 180)
             ZStack(alignment: .leading) {

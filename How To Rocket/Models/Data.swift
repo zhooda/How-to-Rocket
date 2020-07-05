@@ -18,6 +18,9 @@ struct Docs: Codable {
 }
 
 class Api {
+    
+    let warningMessage = "How to Rocket is no where near completion, and is VERY buggy. It can and will crash often. To report bugs or get help, contact me at zeeshan@hooda.dev."
+    
     func getArticles(completion: @escaping ([Article]) -> ()) {
         guard let url = URL(string: "https://spaceflightnewsapi.net/api/v1/articles?limit=20") else {
             return

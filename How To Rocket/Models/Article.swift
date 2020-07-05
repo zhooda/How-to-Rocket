@@ -28,7 +28,7 @@ struct Article: Codable, Identifiable {
 //]
 //#endif
 
-#if DEBUG
+//#if DEBUG
 let testArticleData = [
     Article(title: "This is a headline", url: "", published_date: "Literally right now", news_site_long: "NASA", featured_image: "https://cdn.arstechnica.net/wp-content/uploads/2020/07/rocket-lab-800x543.jpg"),
     Article(title: "This is another headline!", url: "", published_date: "", news_site_long: "SpaceX", featured_image: "https://cdn.arstechnica.net/wp-content/uploads/2020/07/rocket-lab-800x543.jpg"),
@@ -37,4 +37,4 @@ let testArticleData = [
     Article(title: "This is another headline, yet again about rockets", url: "", published_date: "The Squanchy Times", news_site_long: "The Squanchy Times", featured_image: "https://cdn.arstechnica.net/wp-content/uploads/2020/07/rocket-lab-800x543.jpg"),
     Article(title: "Are you bored yet? Well this is just DEBUG data! Try the real deal", url: "Uh Geez Rick I Don't Know", published_date: "Uh Geez Rick I Don't Know", news_site_long: "Uh Geez Rick I Don't Know", featured_image: "https://cdn.arstechnica.net/wp-content/uploads/2020/07/rocket-lab-800x543.jpg"),
 ]
-#endif
+//#endif
