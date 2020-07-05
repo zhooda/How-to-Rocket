@@ -46,7 +46,7 @@ struct LearnTabView: View {
                 .listStyle(InsetGroupedListStyle())
 
             }
-            .navigationBarTitle("Learn", displayMode: .large)
+            .navigationBarTitle("📖 Learn", displayMode: .large)
         }
         .accentColor(.red)
     }

@@ -13,10 +13,10 @@ struct EngineDetailView: View {
     @Environment(\.colorScheme) var colorScheme
     
     var body: some View {
-        ZStack {
 //            Rectangle()
 //                .foregroundColor(Color(colorScheme == .dark ? .systemBackground : .secondarySystemBackground))
 //                .edgesIgnoringSafeArea(.all)
+        VStack {
             ScrollView(showsIndicators: false) {
                 EngineDetailImage(imageName: "open-cycle-svg", caption: "\(engine.name) - \(engine.type)", engine: engine)
                 Spacer()
@@ -24,8 +24,9 @@ struct EngineDetailView: View {
                 Spacer()
                 EngineDetailText(heading: "Specifications", text: lorem2)
             }
-            .navigationBarTitle("\(engine.name)")
+            .padding(.top, 1)
         }
+        .navigationBarTitle("\(engine.name)")
         
     }
 }

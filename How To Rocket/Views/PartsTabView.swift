@@ -22,7 +22,7 @@ struct PartsTabView: View {
                     .cornerRadius(52.0)
                 Text("Under Construction")
                     .font(.title)
-                WebView(url: "https://google.com")
+//                WebView(url: "https://google.com")
             }
         }
     }

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,6 +13,8 @@
 		481A862024AFCB7C00685D8F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 481A861F24AFCB7C00685D8F /* Assets.xcassets */; };
 		481A862324AFCB7C00685D8F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 481A862224AFCB7C00685D8F /* Preview Assets.xcassets */; };
 		481A862624AFCB7C00685D8F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 481A862424AFCB7C00685D8F /* LaunchScreen.storyboard */; };
+		48801E2224B1588A004553C6 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48801E2124B1588A004553C6 /* Data.swift */; };
+		48801E2524B169BB004553C6 /* URLImage in Frameworks */ = {isa = PBXBuildFile; productRef = 48801E2424B169BB004553C6 /* URLImage */; };
 		48C7A0F424B0242D005376F5 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C7A0F324B0242D005376F5 /* RootView.swift */; };
 		48C7A0F624B02BE6005376F5 /* NewsTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C7A0F524B02BE6005376F5 /* NewsTabView.swift */; };
 		48C7A0FA24B02F41005376F5 /* ArticleCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C7A0F924B02F41005376F5 /* ArticleCardView.swift */; };
@@ -35,6 +37,7 @@
 		481A862224AFCB7C00685D8F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		481A862524AFCB7C00685D8F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		481A862724AFCB7C00685D8F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		48801E2124B1588A004553C6 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		48C7A0F324B0242D005376F5 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		48C7A0F524B02BE6005376F5 /* NewsTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTabView.swift; sourceTree = "<group>"; };
 		48C7A0F924B02F41005376F5 /* ArticleCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleCardView.swift; sourceTree = "<group>"; };
@@ -53,6 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				48801E2524B169BB004553C6 /* URLImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -127,6 +131,7 @@
 				48D33DA024AFD2C300198EDB /* Engine.swift */,
 				48D33DA624AFE19800198EDB /* Equation.swift */,
 				48C7A0FB24B02F51005376F5 /* Article.swift */,
+				48801E2124B1588A004553C6 /* Data.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -172,6 +177,9 @@
 			dependencies = (
 			);
 			name = "How To Rocket";
+			packageProductDependencies = (
+				48801E2424B169BB004553C6 /* URLImage */,
+			);
 			productName = "How To Rocket";
 			productReference = 481A861624AFCB7B00685D8F /* How To Rocket.app */;
 			productType = "com.apple.product-type.application";
@@ -199,6 +207,9 @@
 				Base,
 			);
 			mainGroup = 481A860D24AFCB7B00685D8F;
+			packageReferences = (
+				48801E2324B169BB004553C6 /* XCRemoteSwiftPackageReference "url-image" */,
+			);
 			productRefGroup = 481A861724AFCB7B00685D8F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -227,6 +238,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				48C7A0FF24B03DDB005376F5 /* PartsTabView.swift in Sources */,
+				48801E2224B1588A004553C6 /* Data.swift in Sources */,
 				481A861A24AFCB7B00685D8F /* AppDelegate.swift in Sources */,
 				48D33DA124AFD2C300198EDB /* Engine.swift in Sources */,
 				48D33DA924AFE63E00198EDB /* EquationCell.swift in Sources */,
@@ -439,6 +451,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		48801E2324B169BB004553C6 /* XCRemoteSwiftPackageReference "url-image" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/dmytro-anokhin/url-image";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.9.18;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		48801E2424B169BB004553C6 /* URLImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 48801E2324B169BB004553C6 /* XCRemoteSwiftPackageReference "url-image" */;
+			productName = URLImage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 481A860E24AFCB7B00685D8F /* Project object */;
 }

@@ -10,23 +10,23 @@ import SwiftUI
 struct NewsTabView: View {
     
     @Environment(\.colorScheme) var colorScheme
+    @Binding var articles: [Article]
     
     var body: some View {
         NavigationView {
             ScrollView(showsIndicators: false) {
-                ForEach(testArticleData) {article in
+                ForEach(articles) {article in
                     ArticleCardView(article: article)
                 }
-                Spacer()
             }
-            .navigationBarTitle("News", displayMode: .large)
+            .navigationBarTitle("🚀 News", displayMode: .large)
         }
-    
-    }
-}
 
-struct NewsTabView_Previews: PreviewProvider {
-    static var previews: some View {
-        NewsTabView()
     }
 }
+//
+//struct NewsTabView_Previews: PreviewProvider {
+//    static var previews: some View {
+////        NewsTabView()
+//    }
+//}

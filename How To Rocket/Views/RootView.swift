@@ -10,10 +10,11 @@ import SwiftUI
 struct RootView: View {
     
     @State var selectedTab = 0
+    @State var articles: [Article] = []
     
     var body: some View {
         TabView(selection: $selectedTab) {
-            NewsTabView()
+            NewsTabView(articles: $articles)
                 .tabItem {
                     Image(systemName: "newspaper.fill")
                     Text("News")
@@ -31,7 +32,13 @@ struct RootView: View {
                 }.tag(2)
         }
         .accentColor(.red)
+        .onAppear {
+            Api().getArticles { (articles) in
+                self.articles = articles
+            }
+        }
     }
+    
 }
 
 struct CustomTabIcon: View {
