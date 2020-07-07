@@ -23,7 +23,8 @@ struct RootView: View {
 
         // To remove all separators including the actual ones:
         UITableView.appearance().separatorColor = .clear
-        UITableView.appearance().showsVerticalScrollIndicator = false
+        UITableView.appearance().separatorStyle = .none
+//        UITableView.appearance().showsVerticalScrollIndicator = false
         
     }
     

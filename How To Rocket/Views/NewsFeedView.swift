@@ -27,13 +27,11 @@ struct NewsFeedView: View {
     var body: some View {
         NavigationView {
             List(newsFeed) { (article: NewsListItem) in
-//                NavigationLink(destination: NewsListItemView(article: article)) {
-                    NewsListItemListView(article: article)
+                NewsListItemListView(article: article)
                         .edgesIgnoringSafeArea(.all)
                         .onAppear {
                             self.newsFeed.loadMoreArticles(currentItem: article)
-                        }
-//                }
+                }
             }
             .navigationBarTitle("🚀 News")
         }

@@ -75,7 +75,6 @@
 			isa = PBXGroup;
 			children = (
 				48179CD224B433D20074AA56 /* UrlImageView.swift */,
-				48179CD424B434010074AA56 /* NewsFeedView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -141,6 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				48C7A0F524B02BE6005376F5 /* NewsTabView.swift */,
+				48179CD424B434010074AA56 /* NewsFeedView.swift */,
 				481A861D24AFCB7B00685D8F /* LearnTabView.swift */,
 				48C7A0FE24B03DDB005376F5 /* PartsTabView.swift */,
 				48C7A0F324B0242D005376F5 /* RootView.swift */,

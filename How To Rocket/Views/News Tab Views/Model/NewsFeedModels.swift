@@ -92,10 +92,10 @@ class NewsFeed: ObservableObject, RandomAccessCollection {
             return []
         }
         
-//        if response.status != "ok" {
-//            print("Status is not ok: \(response.status)")
-//            return []
-//        }
+        if response.hasNextPage != true {
+            print("Response has next page: \(response.hasNextPage)")
+            return []
+        }
         
         return response.docs ?? []
     }
@@ -111,6 +111,7 @@ class NewsFeed: ObservableObject, RandomAccessCollection {
 class NewsApiResponse: Codable {
 //    var status: String
     var docs: [NewsListItem]?
+    var hasNextPage: Bool
 }
 
 class NewsListItem: Identifiable, Codable {
