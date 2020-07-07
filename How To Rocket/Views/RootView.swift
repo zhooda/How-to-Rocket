@@ -12,6 +12,21 @@ struct RootView: View {
     @State var selectedTab = 0
     @State private var showingAlert = true
     
+    init() {
+            
+        if #available(iOS 14.0, *) {
+            // iOS 14 doesn't have extra separators below the list by default.
+        } else {
+            // To remove only extra separators below the list:
+            UITableView.appearance().tableFooterView = UIView()
+        }
+
+        // To remove all separators including the actual ones:
+        UITableView.appearance().separatorColor = .clear
+        UITableView.appearance().showsVerticalScrollIndicator = false
+        
+    }
+    
     var body: some View {
         TabView(selection: $selectedTab) {
 //            NewsTabView(articles: $articles)

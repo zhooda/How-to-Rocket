@@ -24,7 +24,7 @@ struct LearnTabView: View {
 ////            }
             ListView(engines: engines, equations: equations, sections: sections)
                 .listStyle(GroupedListStyle())
-//                .environment(\.horizontalSizeClass, .regular)
+                .environment(\.horizontalSizeClass, .regular)
         
         }
         .accentColor(.red)
