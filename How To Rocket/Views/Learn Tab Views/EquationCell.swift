@@ -21,7 +21,7 @@ struct EquationCell: View {
                 .cornerRadius(8.0)
             VStack(alignment: .leading) {
                 Text(equation.name)
-                    .font(.title3)
+                    .font(.system(size: 20))
                 Text("\(equation.equation)")
                     .font(.caption)
                     .italic()

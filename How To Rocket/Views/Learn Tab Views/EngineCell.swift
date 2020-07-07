@@ -23,7 +23,7 @@ struct EngineCell: View {
                 .cornerRadius(8.0)
             VStack(alignment: .leading) {
                 Text(engine.name)
-                    .font(.title3)
+                    .font(.system(size: 20))
                 Text("(\(engine.type))")
                     .font(.caption)
             }
