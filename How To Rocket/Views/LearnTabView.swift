@@ -12,7 +12,7 @@ struct LearnTabView: View {
     
     let engines = testEngineData
     let equations = testEquationData
-    let sections = ["Engines", "Equations"]
+    let sections = ["ENGINES", "EQUATIONS"]
     
     var body: some View {
         NavigationView {
@@ -21,8 +21,10 @@ struct LearnTabView: View {
 //                ListWrap14(engines: engines, equations: equations, sections: sections)
 //            } else {
 //                ListWrap13(engines: engines, equations: equations, sections: sections)
-//            }
-            ListWrap13(engines: engines, equations: equations, sections: sections)
+////            }
+            ListView(engines: engines, equations: equations, sections: sections)
+                .listStyle(GroupedListStyle())
+//                .environment(\.horizontalSizeClass, .regular)
         
         }
         .accentColor(.red)
@@ -52,19 +54,19 @@ struct ContentView_Previews: PreviewProvider {
 //    }
 //}
 
-@available(iOS 13.2, *)
-struct ListWrap13: View {
-        
-    var engines: [Engine]
-    var equations: [Equation]
-    var sections: [String]
-    
-    var body: some View {
-        ListView(engines: engines, equations: equations, sections: sections)
-            .listStyle(GroupedListStyle())
-            .environment(\.horizontalSizeClass, .regular)
-    }
-}
+////@available(iOS 13.2, *)
+//struct ListWrap13: View {
+//
+//    var engines: [Engine]
+//    var equations: [Equation]
+//    var sections: [String]
+//
+//    var body: some View {
+//        ListView(engines: engines, equations: equations, sections: sections)
+////            .listStyle(GroupedListStyle())
+////            .environment(\.horizontalSizeClass, .regular)
+//    }
+//}
 
 struct ListView: View {
     
@@ -83,7 +85,7 @@ struct ListView: View {
                         })
                 }
             }
-            .cornerRadius(13)
+//            .cornerRadius(13)
             .padding(.vertical, 3.0)
             
             Section(header: Text(sections[1])) {
@@ -100,7 +102,7 @@ struct ListView: View {
                     //                            EquationCell(equation: equation)
                 }
             }
-            .cornerRadius(13)
+//            .cornerRadius(13)
             .padding(.vertical, 3.0)
         }
         .navigationBarTitle("📖 Learn", displayMode: .large)

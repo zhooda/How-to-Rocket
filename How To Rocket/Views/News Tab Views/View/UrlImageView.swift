@@ -23,7 +23,7 @@ struct UrlImageView: View {
 //            .frame(width: 100, height: 100)
     }
     
-    static var defaultImage = UIImage(named: "NewsIcon")
+    static var defaultImage = UIImage(named: "placeholder-img")
 }
 
 struct UrlImageView_Previews: PreviewProvider {

@@ -9,20 +9,19 @@ import SwiftUI
 
 struct RootView: View {
     
-    @State var selectedTab = 1
-    @State var articles: [Article] = []
+    @State var selectedTab = 0
     @State private var showingAlert = true
-    
     
     var body: some View {
         TabView(selection: $selectedTab) {
 //            NewsTabView(articles: $articles)
             NewsFeedView()
-                .alert(isPresented: $showingAlert) {
-                    Alert(title: Text("WARNING"), message: Text(Api().warningMessage), dismissButton: .destructive(Text("Got it!")))
-                        }
                 .tabItem {
                     Image(systemName: "square.stack.fill")
+                        .renderingMode(.template)
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 23, height: 23)
                     Text("News")
                 }.tag(0)
             LearnTabView()
@@ -38,15 +37,7 @@ struct RootView: View {
                 }.tag(2)
         }
         .accentColor(.red)
-        .onAppear {
-            self.fetchArticles()
-        }
-    }
-    
-    func fetchArticles() {
-        Api().getArticles { (articles) in
-            self.articles = articles
-        }
+
     }
     
 }

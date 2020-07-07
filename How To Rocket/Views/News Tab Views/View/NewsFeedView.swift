@@ -35,7 +35,7 @@ struct NewsFeedView: View {
                         }
 //                }
             }
-            .navigationBarTitle("News")
+            .navigationBarTitle("🚀 News")
         }
     }
 }
