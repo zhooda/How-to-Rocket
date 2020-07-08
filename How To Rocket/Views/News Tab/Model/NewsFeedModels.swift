@@ -18,9 +18,15 @@ class NewsFeed: ObservableObject, RandomAccessCollection {
     
 //    var urlBase = "https://newsapi.org/v2/everything?q=apple&apiKey=6ffeaceffa7949b68bf9d68b9f06fd33&language=en&page="
     
-    var urlBase = "https://spaceflightnewsapi.net/api/v1/articles?page="
+    var urlBase = "https://spaceflightnewsapi.net/api/v1/articles?limit=100&page="
     
     init() {
+        loadMoreArticles()
+    }
+    
+    func refresh() {
+        self.loadStatus = LoadStatus.ready(nextPage: 1)
+        self.newsListItems = [NewsListItem]()
         loadMoreArticles()
     }
     
