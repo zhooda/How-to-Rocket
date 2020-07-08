@@ -36,18 +36,20 @@ struct NewsFeedView: View {
             
             List {
                 
-                SearchBar(text: $searchTerm)
+//                SearchBar(text: $searchTerm)
+//                    .padding(.all, -9)
                 
                 ForEach(newsFeed.newsListItems.filter {
                     self.searchTerm.isEmpty ? true: $0.title.localizedCaseInsensitiveContains(self.searchTerm)
                 }) { article in
                         NewsListItemListView(article: article)
-                                .edgesIgnoringSafeArea(.all)
+//                                .edgesIgnoringSafeArea(.all)
                                 .onAppear {
                                     self.newsFeed.loadMoreArticles(currentItem: article)
-                        }
+                                }
                 }
             }
+            .listStyle(PlainListStyle())
             .id(UUID())
             .navigationBarTitle("News")
                         .navigationBarItems(trailing: Button(action: {
@@ -149,6 +151,25 @@ struct NewsListItemListView: View {
 struct NewsFeedView_Previews: PreviewProvider {
     static var previews: some View {
         NewsFeedView()
+    }
+}
+
+struct ListSeparatorStyle: ViewModifier {
+    
+    let style: UITableViewCell.SeparatorStyle
+    
+    func body(content: Content) -> some View {
+        content
+            .onAppear() {
+                UITableView.appearance().separatorStyle = self.style
+            }
+    }
+}
+ 
+extension View {
+    
+    func listSeparatorStyle(style: UITableViewCell.SeparatorStyle) -> some View {
+        ModifiedContent(content: self, modifier: ListSeparatorStyle(style: style))
     }
 }
 

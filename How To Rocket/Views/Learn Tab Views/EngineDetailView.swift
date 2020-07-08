@@ -20,11 +20,11 @@ struct EngineDetailView: View {
             ScrollView(showsIndicators: false) {
                 EngineDetailImage(imageName: "open-cycle-svg", caption: "\(engine.name) - \(engine.type)", engine: engine)
                 Spacer()
-                EngineDetailText(heading: "Description", text: lorem2)
+                EngineDetailText(heading: "Description", text: engine.description)
                 Spacer()
-                EngineDetailText(heading: "Specifications", text: lorem2)
+                EngineDetailText(heading: "Usage", text: engine.usage)
             }
-            .padding(.top, 1)
+//            .padding(.top, 1)
         }
         .navigationBarTitle("\(engine.name)", displayMode: .large)
         

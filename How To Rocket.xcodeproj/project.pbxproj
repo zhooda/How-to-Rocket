@@ -19,6 +19,7 @@
 		481A862324AFCB7C00685D8F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 481A862224AFCB7C00685D8F /* Preview Assets.xcassets */; };
 		481A862624AFCB7C00685D8F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 481A862424AFCB7C00685D8F /* LaunchScreen.storyboard */; };
 		4827D7DA24B29C230074EFFB /* LearnData.json in Resources */ = {isa = PBXBuildFile; fileRef = 4827D7D924B29C230074EFFB /* LearnData.json */; };
+		4845632724B5617100420C26 /* BetterSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4845632624B5617100420C26 /* BetterSearchBar.swift */; };
 		48801E2224B1588A004553C6 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48801E2124B1588A004553C6 /* Data.swift */; };
 		48A2601824B53D9F005AC885 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A2601724B53D9F005AC885 /* SearchBar.swift */; };
 		48C7A0F424B0242D005376F5 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C7A0F324B0242D005376F5 /* RootView.swift */; };
@@ -48,6 +49,7 @@
 		481A862524AFCB7C00685D8F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		481A862724AFCB7C00685D8F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4827D7D924B29C230074EFFB /* LearnData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LearnData.json; sourceTree = "<group>"; };
+		4845632624B5617100420C26 /* BetterSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetterSearchBar.swift; sourceTree = "<group>"; };
 		48801E2124B1588A004553C6 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		48A2601724B53D9F005AC885 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		48C7A0F324B0242D005376F5 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 				48C7A0F724B02F04005376F5 /* Learn Tab Views */,
 				48C7A0F824B02F14005376F5 /* News Tab */,
 				48A2601A24B53DAC005AC885 /* UIKit Representable Views */,
+				4845632524B5615500420C26 /* Helper Views */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -172,6 +175,14 @@
 				4827D7D924B29C230074EFFB /* LearnData.json */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		4845632524B5615500420C26 /* Helper Views */ = {
+			isa = PBXGroup;
+			children = (
+				4845632624B5617100420C26 /* BetterSearchBar.swift */,
+			);
+			path = "Helper Views";
 			sourceTree = "<group>";
 		};
 		48A2601A24B53DAC005AC885 /* UIKit Representable Views */ = {
@@ -298,6 +309,7 @@
 				481A861C24AFCB7B00685D8F /* SceneDelegate.swift in Sources */,
 				48C7A0F424B0242D005376F5 /* RootView.swift in Sources */,
 				48C7A0FC24B02F51005376F5 /* Article.swift in Sources */,
+				4845632724B5617100420C26 /* BetterSearchBar.swift in Sources */,
 				48D33DAB24AFFD4600198EDB /* EngineDetailView.swift in Sources */,
 				481A861E24AFCB7B00685D8F /* LearnTabView.swift in Sources */,
 				48A2601824B53D9F005AC885 /* SearchBar.swift in Sources */,
@@ -443,7 +455,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 202;
+				CURRENT_PROJECT_VERSION = 203;
 				DEVELOPMENT_ASSET_PATHS = "\"How To Rocket/Preview Content\"";
 				DEVELOPMENT_TEAM = 8ZAQVXT82R;
 				ENABLE_PREVIEWS = YES;
@@ -467,7 +479,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 202;
+				CURRENT_PROJECT_VERSION = 203;
 				DEVELOPMENT_ASSET_PATHS = "\"How To Rocket/Preview Content\"";
 				DEVELOPMENT_TEAM = 8ZAQVXT82R;
 				ENABLE_PREVIEWS = YES;

@@ -36,7 +36,7 @@ struct EngineCell: View {
 struct EngineCell_Previews: PreviewProvider {
     static var previews: some View {
         List {
-            EngineCell(engine: Engine(name: "Open Cycle", type: "Gas Chamber", iconName: "open-cycle-icon", color: .orange))
+            EngineCell(engine: Engine(name: "Open Cycle", type: "Gas Chamber", iconName: "open-cycle-icon", color: .orange, description: "", usage: ""))
         }
     }
 }

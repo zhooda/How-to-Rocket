@@ -46,11 +46,11 @@ struct RootView: View {
                         .renderingMode(.template)
                     Text("Learn")
                 }.tag(1)
-            PartsTabView()
-                .tabItem {
-                    Image(systemName: "hammer.fill")
-                    Text("Parts")
-                }.tag(2)
+//            PartsTabView()
+//                .tabItem {
+//                    Image(systemName: "hammer.fill")
+//                    Text("Parts")
+//                }.tag(2)
         }
         .accentColor(.red)
 
