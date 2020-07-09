@@ -6,10 +6,14 @@
 //
 
 import SwiftUI
+import SwiftUIRefresh
 
 struct NewsFeedView: View {
     @ObservedObject var newsFeed = NewsFeed()
-    @State private var searchTerm: String = ""
+    
+    @ObservedObject var searchBar: SearchBar = SearchBar()
+    
+    @State var isShowing = false
     
     init() {
         if #available(iOS 14.0, *) {
@@ -25,40 +29,34 @@ struct NewsFeedView: View {
     
     var body: some View {
         NavigationView {
-//            List(newsFeed) { (article: NewsListItem) in
-//                NewsListItemListView(article: article)
-//                        .edgesIgnoringSafeArea(.all)
-//                        .onAppear {
-//                            self.newsFeed.loadMoreArticles(currentItem: article)
-//                }
-//            }
-//            .navigationBarTitle("🚀 News")
-            
             List {
                 
-//                SearchBar(text: $searchTerm)
-//                    .padding(.all, -9)
                 
                 ForEach(newsFeed.newsListItems.filter {
-                    self.searchTerm.isEmpty ? true: $0.title.localizedCaseInsensitiveContains(self.searchTerm)
+                    self.searchBar.text.isEmpty ? true: $0.title.localizedCaseInsensitiveContains(self.searchBar.text)
                 }) { article in
+                    VStack {
                         NewsListItemListView(article: article)
-//                                .edgesIgnoringSafeArea(.all)
-                                .onAppear {
-                                    self.newsFeed.loadMoreArticles(currentItem: article)
+    //                                .edgesIgnoringSafeArea(.all)
+                                    .onAppear {
+                                        self.newsFeed.loadMoreArticles(currentItem: article)
                                 }
+                    }
+                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
+                    .listRowInsets(EdgeInsets(top: 0, leading: 16, bottom: 10, trailing: 32))
+                }
+            }
+            .pullToRefresh(isShowing: $isShowing) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                    self.newsFeed.refresh()
+                    self.isShowing = false
                 }
             }
             .listStyle(PlainListStyle())
             .id(UUID())
-            .navigationBarTitle("News")
-                        .navigationBarItems(trailing: Button(action: {
-                            self.newsFeed.refresh()
-                        }, label: {
-                            Image(systemName: "arrow.clockwise.circle.fill")
-                                .imageScale(.large)
-                                .foregroundColor(.red)
-                        }))
+            .navigationBarTitle("🚀 News")
+            .add(self.searchBar)
+            .navigationBarItems(trailing: Text(""))
         }
     }
 
@@ -68,9 +66,6 @@ struct NewsListItemView: View {
     var article: NewsListItem
     
     var body: some View {
-//        UrlWebView(urlToDisplay: URL(string: article.url)!)
-//            .edgesIgnoringSafeArea(.all)
-//            .navigationBarTitle(article.title)
         SafariView(url: URL(string: article.url)!)
     }
 }
@@ -106,18 +101,14 @@ struct NewsListItemListView: View {
                             .padding(.bottom, 2.0)
                             .padding(.top, 8.0)
                             .foregroundColor(.red)
-                        Text(article.title.uppercased())
-                            .fontWeight(.black)
-                            .fontWeight(.black)
-                            .padding(.horizontal, 10.0)
+                        Text(article.title)
+                            .fontWeight(.bold)
+                            .padding(.horizontal, 12.0)
                             .padding(.bottom, 10.0)
-                            .font(.headline)
-//                        Text(article.published_date.UTCToLocal(incomingFormat: "yyyy-MM-dd'T'HH:mm:ss.SSSZ", outGoingFormat: "MMMM d yyyy @ h:mm a"))
-//                            .foregroundColor(Color(.secondaryLabel))
-//                            .bold()
-//                            .padding(.horizontal, 10.0)
-//                            .padding(.bottom, 10.0)
-//                            .font(.caption)
+//                            .font(.headline)
+                            .font(Font.custom("New York", size: 18))
+                            .lineLimit(4)
+                            .fixedSize(horizontal: false, vertical: true)
                     }
                 }
             }
@@ -134,10 +125,15 @@ struct NewsListItemListView: View {
             .padding(.top, 10)
             
             HStack {
+                Image(systemName: "clock.fill")
+                    .font(.caption)
+                    .foregroundColor(Color(.secondaryLabel))
+                    .padding(.leading, 10)
+                    .padding(.trailing, -5)
                 Text(self.timeSincePublished)
                     .foregroundColor(Color(.secondaryLabel))
                     .bold()
-                    .padding(.horizontal, 10)
+                    .padding(.trailing, 10)
                     .cornerRadius(13.0)
                     .font(.caption)
                 Spacer()
@@ -151,25 +147,6 @@ struct NewsListItemListView: View {
 struct NewsFeedView_Previews: PreviewProvider {
     static var previews: some View {
         NewsFeedView()
-    }
-}
-
-struct ListSeparatorStyle: ViewModifier {
-    
-    let style: UITableViewCell.SeparatorStyle
-    
-    func body(content: Content) -> some View {
-        content
-            .onAppear() {
-                UITableView.appearance().separatorStyle = self.style
-            }
-    }
-}
- 
-extension View {
-    
-    func listSeparatorStyle(style: UITableViewCell.SeparatorStyle) -> some View {
-        ModifiedContent(content: self, modifier: ListSeparatorStyle(style: style))
     }
 }
 
