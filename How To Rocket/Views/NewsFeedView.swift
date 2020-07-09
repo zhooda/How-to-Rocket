@@ -14,6 +14,7 @@ struct NewsFeedView: View {
     @ObservedObject var searchBar: SearchBar = SearchBar()
     
     @State var isShowing = false
+    @State var showShareSheet = false
     
     init() {
         if #available(iOS 14.0, *) {
@@ -31,22 +32,56 @@ struct NewsFeedView: View {
         NavigationView {
             List {
                 
-                
-                ForEach(newsFeed.newsListItems.filter {
-                    self.searchBar.text.isEmpty ? true: $0.title.localizedCaseInsensitiveContains(self.searchBar.text)
-                }) { article in
-                    VStack {
-                        NewsListItemListView(article: article)
-    //                                .edgesIgnoringSafeArea(.all)
-                                    .onAppear {
-                                        self.newsFeed.loadMoreArticles(currentItem: article)
+                if !self.newsFeed.newsListItems.isEmpty {
+                    ForEach(newsFeed.newsListItems.filter {
+                        self.searchBar.text.isEmpty ? true : ($0.title.localizedCaseInsensitiveContains(self.searchBar.text) || $0.news_site_long.localizedCaseInsensitiveContains(self.searchBar.text))
+                    }) { article in
+                        VStack {
+                            NewsListItemListView(article: article)
+                                .contextMenu {
+                                    Button(action: {
+    //                                    self.showShareSheet.toggle()
+                                        let pasteBoard = UIPasteboard.general
+                                        pasteBoard.string = article.url
+                                    }) {
+                                        Text("Copy link")
+                                        Image(systemName: "square.on.square")
+                                    }
+                                    Divider()
+                                    Button(action: {
+                                        if let url = URL(string: article.url) {
+                                            UIApplication.shared.open(url)
+                                        }
+                                    }) {
+                                        Text("Open in Safari")
+                                        Image(systemName: "safari")
+                                            .font(.caption)
+                                    }
                                 }
+                                .onAppear {
+                                    self.newsFeed.loadMoreArticles(currentItem: article)
+                                }
+
+                        }
+                        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
+                        .listRowInsets(EdgeInsets(top: 0, leading: 16, bottom: 10, trailing: 32))
                     }
-                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
-                    .listRowInsets(EdgeInsets(top: 0, leading: 16, bottom: 10, trailing: 32))
+                } else {
+                    Spacer()
+                    Spacer()
+                    VStack(alignment: .center) {
+                        Spacer()
+                        HStack {
+                            Spacer()
+                            ActivityIndicator(isAnimating: .constant(true), style: .medium)
+                            Spacer()
+                        }
+                        Spacer()
+                    }
                 }
             }
             .pullToRefresh(isShowing: $isShowing) {
+//                let x = self.newsFeed.refresh()
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                     self.newsFeed.refresh()
                     self.isShowing = false
@@ -123,6 +158,7 @@ struct NewsListItemListView: View {
                 NewsListItemView(article: self.article)
             }
             .padding(.top, 10)
+            
             
             HStack {
                 Image(systemName: "clock.fill")

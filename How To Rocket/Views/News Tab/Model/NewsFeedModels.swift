@@ -24,11 +24,15 @@ class NewsFeed: ObservableObject, RandomAccessCollection {
         loadMoreArticles()
     }
     
+    func empty() {
+        self.newsListItems = [NewsListItem]()
+    }
+    
     func refresh() {
+        
         self.loadStatus = LoadStatus.ready(nextPage: 1)
         self.newsListItems = [NewsListItem]()
         self.loadMoreArticles()
-//        self.refreshLoadMoreArticles()
     }
     
     subscript(position: Int) -> NewsListItem {
